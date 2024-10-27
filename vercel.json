@@ -1,24 +1,23 @@
 {
-    "builds": [
-      {
-        "src": "ashuportfolio/wsgi.py",
-        "use": "@vercel/python",
-        "config": { "maxLambdaSize": "15mb","runtime":"python3.9" }
-      },
-      {
-        "src": "staticfiles/**/*",
-        "use": "@vercel/static"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/static/(.*)",
-        "dest": "/staticfiles/$1"
-      },
-      {
-        "src": "/(.*)",
-        "dest": "ashuportfolio/wsgi.py"
-      }
-    ]
-  }
-  
+  "builds": [
+    {
+      "src": "ashuportfolio/wsgi.py",
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+    },
+    {
+      "src": "staticfiles_build/static/**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/staticfiles_build/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "ashuportfolio/wsgi.py"
+    }
+  ]
+}
