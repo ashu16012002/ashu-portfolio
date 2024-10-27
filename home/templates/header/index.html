@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block start %}
+    <h1 class="text-center my-4">Django Tutorial</h1>
+
+    <div class="container my-5 p-4 rounded shadow glass-effect">
+        <div class="row align-items-center">
+            <!-- Left Column with Rounded Image and Animation -->
+            <div class="col-md-6 text-center">
+                <img src="{% static 'home/images/826.jpg' %}" alt="Profile Image" class="profile-img img-fluid rounded-circle shadow-lg" style="width: 280px; height: 280px; object-fit: cover;">
+            </div>
+            
+            <!-- Right Column with Heading and Animated Text -->
+            <div class="col-md-6">
+                <h2 class=" mb-3">Welcome to Our Featured Section</h2>
+                <p class="animated-text lead">Discover amazing content crafted just for you, with insights and inspirations that will captivate your attention.</p>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Glass Effect Background */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.5); /* Lightened opacity for a lighter glass effect */
+            backdrop-filter: blur(10px); /* Creates the frosted glass effect */
+            border-radius: 10px; /* Optional: rounds the corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+        }
+
+        /* Text Animation */
+        .animated-text {
+            animation: fadeIn 2s ease-in-out infinite alternate;
+            color: #555;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Image Animation */
+        .profile-img {
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            animation: pulse 3s ease-in-out infinite alternate;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Pulsing Effect */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+    </style>
+{% endblock %}

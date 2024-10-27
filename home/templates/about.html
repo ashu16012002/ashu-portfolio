@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load static %} <!-- Load static at the very top -->
+
+{% block head %} <!-- If your base template has a block for head content -->
+<link rel="stylesheet" href="{% static 'home/css/about.css' %}">
+{% endblock %}
+
+{% block start %}
+<h1>About</h1>
+{% endblock %}
